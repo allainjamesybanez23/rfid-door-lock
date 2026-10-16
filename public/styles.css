@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    color: #333;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+button {
+    margin-bottom: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    padding: 0.7em 2em;
+    border: 3px solid white;
+    background-color: transparent;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+button::before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: white;
+    color: white;
+    z-index: -1;
+    border-radius: 20px;
+}
+
+button:hover, button:focus {
+    color: #4e6e95;
+    font-weight: bold;
+}
+
+button:hover:before, button:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+#status {
+    margin: 20px auto 0;
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 30px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+    width: 420px;
+    background: transparent;
+    border: 2px solid white;
+    backdrop-filter: blur(3.5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+    padding: 30px 40px;
+}
+.btn-lock {
+    position:static;
+    top: calc(50% - 32px);
+    left: calc(50% - 32px);
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 64px;
+    height: 64px;
+    box-sizing: border-box;
+    padding: 12px 0 0 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.btn-lock:hover {
+    border-color: rgba(255, 255, 255, 1); 
+}
+
+.btn-lock svg {
+    position: absolute;
+    top: 48%;
+    left: 46.8%;
+    fill: none;
+    transform: translate3d(0, 0, 0);
+    stroke: rgba(255, 255, 255, 0.8);
+}
+.btn-lock svg .bling {
+    stroke: #ffffff;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 3;
+    stroke-dashoffset: 15;
+    transition: all 0.3s ease;
+}
+.btn-lock svg .lock {
+    stroke: #fff;
+    stroke-width: 4;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: 30;
+    transition: all 0.4s ease;
+}
+.btn-lock svg .lockb{
+    fill: #fff;
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    transform: rotate(8deg);
+    transform-origin: 14px 20px;
+    transition: all 0.2s ease;
+}
+#inpLock {
+    display: none;
+}
+#inpLock:checked + label{
+    background: transparent;
+}
+#inpLock:checked + label svg{
+    opacity: 1;
+}
+#inpLock:checked + label svg .bling{
+    animation: bling 0.3s linear forwards;
+    animation-delay: 0.2s;
+}
+#inpLock:checked + label svg .lock{
+    stroke-dasharray: 48;
+    animation: locked 0.3s linear forwards;
+}
+#inpLock:checked + label svg .lockb{
+    transform: rotate(0);
+    transform-origin: 14px 22px;
+}
+@keyframes bling
+{
+    50%
+    {
+    stroke-dasharray: 3;
+    stroke-dashoffset: 12;
+    }
+    100%
+    {
+    stroke-dasharray: 3;
+    stroke-dashoffset: 9;
+    }
+}
+@keyframes locked
+{
+    50%
+    {
+    transform: translateY(1px);
+    }
+}
+.register-btn {
+    border: 2px solid white;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
